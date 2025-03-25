@@ -1,8 +1,8 @@
 import React from 'react';
-import TaskForm from './components/TaskForm';
-import TaskList from './components/TaskList';
-import TaskFilter from './components/TaskFilter';
-import { useTheme } from './context/ThemeContext';
+import TaskForm from './components/TaskForm.jsx';
+import TaskList from './components/TaskList.jsx';
+import TaskFilter from './components/TaskFilter.jsx';
+import { useTheme } from './context/ThemeContext.jsx';
 import './App.css';
 
 const App = () => {
