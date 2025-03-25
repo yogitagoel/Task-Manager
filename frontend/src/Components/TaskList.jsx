@@ -10,6 +10,7 @@ const TaskList = () => {
   const [editTitle, setEditTitle] = useState('');
   const [editDescription, setEditDescription] = useState('');
   const [editStatus, setEditStatus] = useState('Pending');
+  const [editdueDate,setEditDueDate] = useState(Date.now());
 
   useEffect(() => {
     if (taskStatus === 'idle') {
@@ -22,11 +23,12 @@ const TaskList = () => {
     setEditTitle(task.title);
     setEditDescription(task.description);
     setEditStatus(task.status);
+    setEditDueDate(task.dueDate);
   };
 
   const handleEditSubmit = (e) => {
     e.preventDefault();
-    dispatch(updateTask({ id: editingTask, title: editTitle, description: editDescription, status: editStatus }));
+    dispatch(updateTask({ id: editingTask, title: editTitle, description: editDescription, status: editStatus, dueDate: editdueDate}));
     setEditingTask(null);
   };
 
@@ -55,6 +57,12 @@ const TaskList = () => {
                 <option value="In Progress">In Progress</option>
                 <option value="Completed">Completed</option>
               </select>
+              <input
+                type="date"
+                value={editdueDate}
+                onChange={(e) => setEditDueDate(e.target.value)}
+                required
+              />
               <button type="submit">Save</button>
             </form>
           ) : (
@@ -62,6 +70,7 @@ const TaskList = () => {
               <h3>{task.title}</h3>
               <p>{task.description}</p>
               <p>Status: {task.status}</p>
+              <p>{task.dueDate}</p>
               <button onClick={() => handleEditClick(task)}>Edit</button>
               <button onClick={() => handleDelete(task._id)}>Delete</button>
             </>

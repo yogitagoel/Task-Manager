@@ -1,7 +1,7 @@
 import React from 'react';
 
-function NavBar(){
-    const navStyle={
+const NavBar = () => {
+    const navStyle = {
         display: "flex",
         height: "10%",
         width:"100%",
@@ -12,7 +12,7 @@ function NavBar(){
         padding:"1%",
     }
     return(
-        <div style={navstyle} className='NavBar'>
+        <div style={navStyle} className='NavBar'>
             <h2>Taskify</h2>
             <button>Logout</button>
         </div>

@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 const TaskFilter = () => {
   const [filter, setFilter] = useState('All');
-  const tasks = useSelector((state) => state.tasks.tasks);
+  const tasks = useSelector((state) => state.tasks);
 
   const filteredTasks = tasks.filter((task) => {
     if (filter === 'All') return true;
@@ -25,6 +25,7 @@ const TaskFilter = () => {
             <h3>{task.title}</h3>
             <p>{task.description}</p>
             <p>Status: {task.status}</p>
+            <p>dueDate: {task.dueDate}</p>
           </li>
         ))}
       </ul>

@@ -6,14 +6,16 @@ const TaskForm = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [status, setStatus] = useState('Pending');
+  const [dueDate, setdueDate] = useState(Date.now);
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(createTask({ title, description, status }));
+    dispatch(createTask({ title, description, status, dueDate }));
     setTitle('');
     setDescription('');
     setStatus('Pending');
+    setdueDate(Date.now());
   };
 
   return (
@@ -35,6 +37,13 @@ const TaskForm = () => {
         <option value="In Progress">In Progress</option>
         <option value="Completed">Completed</option>
       </select>
+      <input
+      type="date"
+      value={dueDate}
+      onChange={(e) => setdueDate(e.target.value)}
+      placeholder="Task due Date"
+      required
+      />
       <button type="submit">Add Task</button>
     </form>
   );
