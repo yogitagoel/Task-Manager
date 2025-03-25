@@ -3,6 +3,7 @@ import TaskForm from './Components/TaskForm.jsx';
 import TaskList from './Components/TaskList.jsx';
 import TaskFilter from './Components/TaskFilter.jsx';
 import { useTheme } from './context/ThemeContext.jsx';
+import NavBar from "./Components/Navbar.jsx";
 import './App.css';
 
 const App = () => {
@@ -10,7 +11,7 @@ const App = () => {
 
   return (
     <div className={isDarkTheme ? 'dark-theme' : 'light-theme'}>
-      <h1>Task Manager</h1>
+      <NavBar/>
       <button onClick={toggleTheme}>Toggle Theme</button>
       <TaskForm />
       <TaskFilter />
