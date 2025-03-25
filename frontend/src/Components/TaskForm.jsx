@@ -18,8 +18,15 @@ const TaskForm = () => {
     setdueDate(Date.now());
   };
 
+  const divStyle={
+    display:"flex",
+    justifyContent:"space-between",
+    alignItems:"center",
+
+  }
+
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} style={divStyle}>
       <input
         type="text"
         value={title}

@@ -3,8 +3,6 @@ import React from 'react';
 const NavBar = () => {
     const navStyle = {
         display: "flex",
-        height: "10%",
-        width:"100%",
         justifyContent: "space-between",
         alignItems:"center",
         color:"white",
