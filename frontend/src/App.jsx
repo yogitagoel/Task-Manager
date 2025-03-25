@@ -1,7 +1,7 @@
 import React from 'react';
-import TaskForm from './components/TaskForm.jsx';
-import TaskList from './components/TaskList.jsx';
-import TaskFilter from './components/TaskFilter.jsx';
+import TaskForm from './Components/TaskForm.jsx';
+import TaskList from './Components/TaskList.jsx';
+import TaskFilter from './Components/TaskFilter.jsx';
 import { useTheme } from './context/ThemeContext.jsx';
 import './App.css';
 
