@@ -4,13 +4,7 @@ const Task = require('../models/Task.js');
 const getTasks = async (req, res) => {
   try {
     const tasks = await Task.find();
-
-    console.log("gettasks loaded");
-
-
     res.json(tasks);
-
-    console.log("gettasks");
 
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -23,6 +17,7 @@ const createTask = async (req, res) => {
     title: req.body.title,
     description: req.body.description,
     status: req.body.status,
+    dueDate: req.body.dueDate,
   });
   try {
     const newTask = await task.save();
