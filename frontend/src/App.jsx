@@ -11,7 +11,9 @@ const App = () => {
     <div className="Home">
       <NavBar/>
       <TaskForm />
+      <br/>
       <TaskFilter />
+      <br/>
       <TaskList />
     </div>
   );

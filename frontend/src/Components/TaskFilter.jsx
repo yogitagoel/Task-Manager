@@ -9,9 +9,14 @@ const TaskFilter = () => {
     if (filter === 'All') return true;
     return task.status === filter;
   });
+  const style={
+    display:"flex",
+    justifyContent:"space-between",
+    alignItes:"center",
 
+  }
   return (
-    <div>
+    <div style={style}>
       <select value={filter} onChange={(e) => setFilter(e.target.value)}>
         <option value="All">All</option>
         <option value="Pending">Pending</option>
