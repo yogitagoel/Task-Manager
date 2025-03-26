@@ -1,10 +1,12 @@
 import React from 'react';
 
-const Signup = () => {
+const SignUp = () => {
     const style = {
         display:"flex",
         justifyContent:"center",
         alignitems:"center",
+        height:"20rem",
+        width:"40rem",
     }
     return(
         <div style={style}>
@@ -16,3 +18,5 @@ const Signup = () => {
         </div>
     )
 }
+
+export default SignUp;
