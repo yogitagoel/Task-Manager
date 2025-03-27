@@ -1,27 +1,35 @@
 const express = require('express');
 const router = express.Router();
-const task = require('../models/Task.js');
+const Task = require('../models/Task.js');
 
-router.post('/tasks', async(req,res) => {
-    const task = new task({
-        title: req.body.title,
-        description: req.body.description,
-        status: req.body.status,
-        duedate: req.body.dueDate,
-    })
-    try{
-        const newtask = await task.save();
-        res.status(201).json(newtask);
-    }catch(err){
-        res.status(400).json({message:err.message});
-    }
-});
+router.post('/', async (req, res) => {
+    try {
+      const { title, description,status,dueDate} = req.body;
 
-application.get('/tasks', async(req,res) =>{
-    try{
-        const tasks = await task.find();
-        res.json(tasks);
-    }catch(err){
-        res.status(500).json({ message: err.message });
+      if (!title || !description) {
+        return res.status(400).json({ message: 'Title and description are required' });
+      }
+  
+      const task = new Task({
+        title,
+        description,
+        status,
+        dueDate,
+      });
+  
+      await task.save();
+      res.status(201).json(savedTask);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
     }
-});
+  });
+
+  router.get('/', async (req, res) => {
+    try {
+      const tasks = await Task.find();
+      res.json(tasks);
+    } catch (err) {
+      res.status(500).json({ message: err.message });
+    }
+  });
+module.exports=router;
